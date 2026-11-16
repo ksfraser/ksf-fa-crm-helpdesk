@@ -1,17 +1,11 @@
 <?php
-declare(strict_types=1);
 
-use Ksfraser\FrontAccounting\CRM\Helpdesk\App\HelpdeskFrontController;
-use Ksfraser\FrontAccounting\CRM\Helpdesk\App\HelpdeskAppShell;
+require_once __DIR__ . '/bootstrap.php';
 
 $path_to_root = '../..';
 
-if (file_exists(__DIR__ . '/bootstrap.php')) {
-    require_once __DIR__ . '/bootstrap.php';
-}
-
-$frontController = new HelpdeskFrontController(
-    new HelpdeskAppShell(),
+$frontController = new \Ksfraser\FrontAccounting\CRM\Helpdesk\App\HelpdeskFrontController(
+    new \Ksfraser\FrontAccounting\CRM\Helpdesk\App\HelpdeskAppShell(),
     'SA_HELPDESK_VIEW',
     $path_to_root
 );
