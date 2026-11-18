@@ -8,10 +8,10 @@ require_once __DIR__ . '/includes/common.inc';
 require_once __DIR__ . '/includes/events.inc';
 use ksfraser\RelatedTo\DTO\RelatedRecordDto;
 define('SS_ksf_FA_CRM_Helpdesk', 197 << 8);
-if (!defined('SA_HELPDESK_VIEW')) {
-    define('SA_HELPDESK_VIEW', SS_ksf_FA_CRM_Helpdesk | 1);
-    define('SA_HELPDESK_MANAGE', SS_ksf_FA_CRM_Helpdesk | 2);
-    define('SA_HELPDESK_ADMIN', SS_ksf_FA_CRM_Helpdesk | 3);
+if (!defined('SA_CRM_HELPDESK_VIEW')) {
+    define('SA_CRM_HELPDESK_VIEW', SS_ksf_FA_CRM_Helpdesk | 1);
+    define('SA_CRM_HELPDESK_MANAGE', SS_ksf_FA_CRM_Helpdesk | 2);
+    define('SA_CRM_HELPDESK_ADMIN', SS_ksf_FA_CRM_Helpdesk | 3);
 }
 class hooks_ksf_FA_CRM_Helpdesk extends hooks {
     const RESPONDERS = array('RELATED_TO_FIELDS', 'HELPDESK_RESOLVE', 'HELPDESK_FIELDS', 'HELPDESK_LIST');
@@ -21,9 +21,9 @@ class hooks_ksf_FA_CRM_Helpdesk extends hooks {
     function install_options($app) { }
     function install_access() {
         $security_sections[SS_ksf_FA_CRM_Helpdesk] = _("Helpdesk");
-        $security_areas['SA_HELPDESK_VIEW'] = array(SA_HELPDESK_VIEW, _("View helpdesk cases"));
-        $security_areas['SA_HELPDESK_MANAGE'] = array(SA_HELPDESK_MANAGE, _("Manage helpdesk cases"));
-        $security_areas['SA_HELPDESK_ADMIN'] = array(SA_HELPDESK_ADMIN, _("Administer helpdesk"));
+        $security_areas['SA_CRM_HELPDESK_VIEW'] = array(SA_CRM_HELPDESK_VIEW, _("View helpdesk cases"));
+        $security_areas['SA_CRM_HELPDESK_MANAGE'] = array(SA_CRM_HELPDESK_MANAGE, _("Manage helpdesk cases"));
+        $security_areas['SA_CRM_HELPDESK_ADMIN'] = array(SA_CRM_HELPDESK_ADMIN, _("Administer helpdesk"));
         return array($security_areas, $security_sections);
     }
     function activate_extension($company, $check_only = true) {
@@ -40,9 +40,9 @@ class hooks_ksf_FA_CRM_Helpdesk extends hooks {
     public function getModuleConstants(&$data, $opts = null) {
         $data['constants'] = array(
             'SS_ksf_FA_CRM_Helpdesk' => SS_ksf_FA_CRM_Helpdesk,
-            'SA_HELPDESK_VIEW' => SA_HELPDESK_VIEW,
-            'SA_HELPDESK_MANAGE' => SA_HELPDESK_MANAGE,
-            'SA_HELPDESK_ADMIN' => SA_HELPDESK_ADMIN,
+            'SA_CRM_HELPDESK_VIEW' => SA_CRM_HELPDESK_VIEW,
+            'SA_CRM_HELPDESK_MANAGE' => SA_CRM_HELPDESK_MANAGE,
+            'SA_CRM_HELPDESK_ADMIN' => SA_CRM_HELPDESK_ADMIN,
         );
         return true;
     }

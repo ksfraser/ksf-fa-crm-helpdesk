@@ -8,7 +8,7 @@ $path_to_root = '../..';
 require_once($path_to_root . '/includes/session.inc');
 
 if (!function_exists('page_security')) {
-    define('page_security', 'SA_HELPDESK_MANAGE');
+    define('page_security', 'SA_CRM_HELPDESK_MANAGE');
 }
 
 $controller = new HelpdeskTabController(null, array());
